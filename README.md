@@ -37,6 +37,19 @@ Check the repository and the resolved dependency hashes yourself before using
 the identity commands. The upstream requirements may change after this guide is
 published; the pinned commit above is the only version reviewed here.
 
+### Read-only verifier
+
+This repository includes [`verify.sh`](./verify.sh) for an already-installed
+upstream checkout. It checks the exact reviewed Git commit, the platform's
+expected `cryptography` version, the tool version, and a one-record lobby read.
+It creates no DID and does not publish a message:
+
+```bash
+git clone https://github.com/hubofvalley/technocore-did-guide.git
+cd technocore-did-guide
+./verify.sh /path/to/technocore-did-starter
+```
+
 ## Identity handling
 
 `init` creates a persistent encrypted Ed25519 PEM and asks for a recovery
